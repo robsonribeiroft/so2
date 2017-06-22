@@ -12,20 +12,30 @@ public class Main {
     public static void main(String[] args) {
         List<Integer> values = new ArrayList<>();
         List<Character> method = new ArrayList<>();
+        int currentChar;
         try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
 
             String sCurrentLine;
 
             while ((sCurrentLine = br.readLine()) != null) {
                 for (int i=0; i<sCurrentLine.length(); i++){
-                    String element = "";
+                    String tmp = "";
+                    if (sCurrentLine.charAt(i)>=48 && sCurrentLine.charAt(i)<=57){
+                        while (sCurrentLine.charAt(i)>=48 && sCurrentLine.charAt(i)<=57){
+                            tmp += String.valueOf(sCurrentLine.charAt(i));
+                            i++;
+                        }
+                        method.add(sCurrentLine.charAt(i));
+                    }
 
-                    try {
-                        values.add(Integer.parseInt(String.valueOf(sCurrentLine.charAt(i))));
-                        method.add(sCurrentLine.charAt(i+1));
-                    } catch (Exception ignored){}
+                    if (!tmp.isEmpty()){
+                        values.add(Integer.valueOf(tmp));
+                    }
+
                 }
             }
+
+
 
             System.out.println(values);
             System.out.println(method);
