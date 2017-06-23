@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ReadFile extends Thread {
 
-    private static final String FILENAME = "C:\\Users\\robso\\AndroidStudioProjects\\SistemaOperacionaisII\\src\\data.txt";
+    private static final String FILENAME = "";
     //List<Integer> values = new ArrayList<>();
     //List<Character> method = new ArrayList<>();
 
