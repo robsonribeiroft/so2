@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by robso on 23/06/2017.
@@ -11,8 +9,6 @@ import java.util.List;
 public class ReadFile extends Thread {
 
     private static final String FILENAME = "";
-    //List<Integer> values = new ArrayList<>();
-    //List<Character> method = new ArrayList<>();
 
     public ReadFile(){
         new Thread(){
@@ -39,11 +35,10 @@ public class ReadFile extends Thread {
                         }
                     }
 
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Singleton.getInstance().readFileComplet = true;
+                Singleton.getInstance().fileComplete = true;
                 //System.out.println(Singleton.getInstance().data.values);
                 //System.out.println(Singleton.getInstance().data.method);
             }

@@ -1,10 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by robso on 23/06/2017.
  */
 public class Singleton {
 
     public Data data = new Data();
-    public boolean readFileComplet = false;
+    public List<Integer> memory = new ArrayList<>();
+    public boolean fileComplete = false;
 
     private static Singleton uniqueInstance;
 
