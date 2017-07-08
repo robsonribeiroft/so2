@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class ReadFile extends Thread {
 
-    private static final String FILE_LOCATION = "C:\\Users\\robso\\AndroidStudioProjects\\SistemaOperacionaisII\\src\\REFERENCIAS_100.txt";
+    private static final String FILE_LOCATION = "";
 
     ReadFile(){
         new Thread(this).start();
