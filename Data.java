@@ -9,5 +9,4 @@ public class Data {
     public List<Integer> values = new ArrayList<>();
     public List<Character> method = new ArrayList<>();
 
-
 }

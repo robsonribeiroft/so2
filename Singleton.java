@@ -7,7 +7,6 @@ import java.util.List;
 public class Singleton {
 
     public Data data = new Data();
-    public List<Integer> memory = new ArrayList<>();
     public boolean fileComplete = false;
 
     private static Singleton uniqueInstance;
