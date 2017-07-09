@@ -1,15 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by robso on 08/07/2017.
- */
 public class MRU extends Thread{
 
     private int lowestFrame;
     private int biggerFrame;
-    private int acertos = 0;
-    private List<Integer> memory = new ArrayList<>();
+    private static final int FIRST = 0;
 
     public MRU(int lowestFrame, int biggerFrame){
         this.lowestFrame = lowestFrame;
@@ -20,10 +16,26 @@ public class MRU extends Thread{
     @Override
     public void run() {
         super.run();
+        //Algoritmo MRU
         for (int i=lowestFrame; i<=biggerFrame; i++){
+            int acertos = 0;
+            List<Integer> memory = new ArrayList<>();
             for (int j=0; j<Singleton.getInstance().data.values.size(); j++){
-
+                if (memory.contains(Singleton.getInstance().data.values.get(j))){
+                    int carry = Singleton.getInstance().data.values.get(j);
+                    Singleton.getInstance().data.values.remove(j);
+                    Singleton.getInstance().data.values.add(carry);
+                    acertos++;
+                }
+                else if (i == memory.size()){
+                    memory.remove(FIRST);
+                    memory.add(Singleton.getInstance().data.values.get(j));
+                }
+                else {
+                    memory.add(Singleton.getInstance().data.values.get(j));
+                }
             }
+            System.out.println("MRU - "+i+" -> " + acertos);
         }
     }
 }

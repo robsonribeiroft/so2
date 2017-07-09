@@ -1,15 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class FIFO extends  Thread {
+/**
+ * Created by robso on 08/07/2017.
+ */
+public class SC extends Thread {
 
     private int lowestFrame;
     private int biggerFrame;
     private int acertos = 0;
     private List<Integer> memory = new ArrayList<>();
+    private List<Integer> R = new ArrayList<>();
     private static final int FIRST = 0;
+    private static final int ZERADOR = 30;
 
-    FIFO(int lowestFrame, int biggerFrame){
+    public SC(int lowestFrame, int biggerFrame){
         this.lowestFrame = lowestFrame;
         this.biggerFrame = biggerFrame;
         new Thread(this).start();
@@ -18,24 +23,18 @@ public class FIFO extends  Thread {
     @Override
     public void run() {
         super.run();
-        //Algoritmo FIFO
         for (int i=lowestFrame; i<=biggerFrame; i++){
             memory = new ArrayList<>();
             for (int j=0; j<Singleton.getInstance().data.values.size(); j++){
-                if (memory.contains(Singleton.getInstance().data.values.get(j))){
-                    acertos++;
+                if (j%ZERADOR == 0 && j!=0){
+                    for (int k=0; k<R.size(); k++){
+                        R.set(k, 0);
+                    }
                 }
-                else if (i == memory.size()){
-                    memory.remove(FIRST);
-                    memory.add(Singleton.getInstance().data.values.get(j));
-                }
-                else {
-                    memory.add(Singleton.getInstance().data.values.get(j));
-                }
+                if ()
             }
-            System.out.println("FIFO - "+i+" -> " + acertos);
+            System.out.println("SC - "+i+" -> " + acertos);
             acertos = 0;
         }
     }
-
 }
