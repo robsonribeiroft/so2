@@ -8,8 +8,9 @@ public class Main {
 
         while (!Singleton.getInstance().fileComplete){}
         //new FIFO(5, 8);
-        new MRU(5, 8);
-
+        //new MRU(5, 8);
+        //new SecondChance(5,8);
+        new Otimo(5, 8);
     }
 
 }

@@ -22,9 +22,8 @@ public class MRU extends Thread{
             List<Integer> memory = new ArrayList<>();
             for (int j=0; j<Singleton.getInstance().data.values.size(); j++){
                 if (memory.contains(Singleton.getInstance().data.values.get(j))){
-                    int carry = Singleton.getInstance().data.values.get(j);
-                    Singleton.getInstance().data.values.remove(j);
-                    Singleton.getInstance().data.values.add(carry);
+                    memory.remove(Singleton.getInstance().data.values.get(j));
+                    memory.add(Singleton.getInstance().data.values.get(j));
                     acertos++;
                 }
                 else if (i == memory.size()){
