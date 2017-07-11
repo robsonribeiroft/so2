@@ -65,6 +65,7 @@ public class NUR extends Thread {
                             for (int l = 0; l < memory.size(); l++){
                                 if (biggerClass(R.get(l), M.get(l))< biggerClass(R.get(k), M.get(k))){
                                     indexLowerClass = l;
+                                    break;
                                 }
                             }
                         }
