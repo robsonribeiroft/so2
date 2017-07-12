@@ -8,6 +8,11 @@ public class Singleton {
 
     public Data data = new Data();
     public boolean fileComplete = false;
+    public List<Integer> resultFIFO = new ArrayList<>();
+    public List<Integer> resultSecondChance = new ArrayList<>();
+    public List<Integer> resultOtimo = new ArrayList<>();
+    public List<Integer> resultMRU = new ArrayList<>();
+    public List<Integer> resultNUR = new ArrayList<>();
 
     private static Singleton uniqueInstance;
 

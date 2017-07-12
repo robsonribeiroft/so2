@@ -33,7 +33,8 @@ public class FIFO extends  Thread {
                     memory.add(Singleton.getInstance().data.values.get(j));
                 }
             }
-            System.out.println("FIFO - "+i+" -> " + acertos);
+            //System.out.println("FIFO - "+i+" -> " + acertos);
+            Singleton.getInstance().resultFIFO.add(acertos);
             acertos = 0;
         }
     }

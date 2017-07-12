@@ -4,16 +4,18 @@ import java.io.IOException;
 
 public class ReadFile extends Thread {
 
-    private static final String FILE_LOCATION = "C:\\Users\\robso\\AndroidStudioProjects\\SistemaOperacionaisII\\src\\REFERENCIAS_100.txt";
+    private static final String FILE_LOCATION = "C:\\Users\\robso\\AndroidStudioProjects\\SistemaOperacionaisII\\src\\REFERENCIAS_100k.txt";
+    private String path;
 
-    ReadFile(){
+    ReadFile(String path){
+        this.path = path;
         new Thread(this).start();
     }
 
     @Override
     public void run() {
         super.run();
-        try (BufferedReader br = new BufferedReader(new FileReader(FILE_LOCATION))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String sCurrentLine;
             while ((sCurrentLine = br.readLine()) != null) {
                 for (int i=0; i<sCurrentLine.length(); i++){

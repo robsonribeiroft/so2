@@ -8,15 +8,17 @@ public class SecondChance extends Thread {
 
     private int lowestFrame;
     private int biggerFrame;
+    private int zerador;
     private int acertos = 0;
     private List<Integer> memory = new ArrayList<>();
     private List<Integer> R = new ArrayList<>();
     private static final int FIRST = 0;
-    private static final int ZERADOR = 30;
 
-    public SecondChance(int lowestFrame, int biggerFrame){
+
+    public SecondChance(int lowestFrame, int biggerFrame, int zerador){
         this.lowestFrame = lowestFrame;
         this.biggerFrame = biggerFrame;
+        this.zerador = zerador;
         new Thread(this).start();
     }
 
@@ -32,8 +34,9 @@ public class SecondChance extends Thread {
         for (int i=lowestFrame; i<=biggerFrame; i++){
             acertos = 0;
             memory = new ArrayList<>();
+            R = new ArrayList<>();
             for (int j=0; j<Singleton.getInstance().data.values.size(); j++){
-                if (j%ZERADOR == 0){
+                if (j% zerador == 0 && j!=0){
                     clearBitR();
                 }
                 if (memory.contains(Singleton.getInstance().data.values.get(j))){
@@ -62,7 +65,8 @@ public class SecondChance extends Thread {
                     }
                 }
             }
-            System.out.println("SecondChance - "+i+" -> " + acertos);
+            //System.out.println("SecondChance - "+i+" -> " + acertos);
+            Singleton.getInstance().resultSecondChance.add(acertos);
 
         }
     }

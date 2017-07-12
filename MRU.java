@@ -34,7 +34,8 @@ public class MRU extends Thread{
                     memory.add(Singleton.getInstance().data.values.get(j));
                 }
             }
-            System.out.println("MRU - "+i+" -> " + acertos);
+            //System.out.println("MRU - "+i+" -> " + acertos);
+            Singleton.getInstance().resultMRU.add(acertos);
         }
     }
 }
