@@ -7,23 +7,18 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.NumberTickUnit;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class LineChart extends ApplicationFrame {
 
     public LineChart(int startFrame, List<Integer> hintsFIFO, List<Integer> hintsMRU, List<Integer> hintsSecondChance, List<Integer> hintsNUR, List<Integer> hintsBest) {
-        super("Parent`s Job");
+        super("Gerenciamento de memória");
 
         JFreeChart xylineChart = createPanel(startFrame, hintsFIFO, hintsMRU, hintsSecondChance, hintsNUR, hintsBest);
 
@@ -48,7 +43,7 @@ public class LineChart extends ApplicationFrame {
 
     private JFreeChart createPanel(int startFrame, List<Integer> hintsFIFO, List<Integer> hintsMRU, List<Integer> hintsSecondChance, List<Integer> hintsNUR, List<Integer> hintsBest){
         JFreeChart jfreechart = ChartFactory.createScatterPlot(
-                "Frames vs Hits", "Frames", "Hits", (XYDataset) createDataset(startFrame, hintsFIFO, hintsMRU, hintsSecondChance, hintsNUR, hintsBest),
+                "Frames x Acertos", "Frames", "Acertos", createDataset(startFrame, hintsFIFO, hintsMRU, hintsSecondChance, hintsNUR, hintsBest),
                 PlotOrientation.VERTICAL, true, true, false);
 
         double tickUnit = 1000.0;

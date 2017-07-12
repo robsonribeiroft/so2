@@ -3,12 +3,11 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.RefineryUtilities;
 
 import javax.swing.*;
-import java.util.Scanner;
+import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
 
         JWindow window = new JWindow();
@@ -43,12 +42,19 @@ public class Main {
         chart.pack( );
         RefineryUtilities.centerFrameOnScreen( chart );
         chart.setVisible( true );
-        System.out.println("  Frames\tSC\t\tNRU\t\tBEST\tFIFO\tMRU");
+        String message = "";
+        message = "Frames\tSC\tNRU\tBEST\tFIFO\tMRU\t\n";
         for (int i=0; i<Singleton.getInstance().resultOtimo.size(); i++){
-            System.out.println("\t"+qntMinimaFrames+"\t\t"+Singleton.getInstance().resultSecondChance.get(i)+"\t"+Singleton.getInstance().resultNUR.get(i)+"\t"+Singleton.getInstance().resultOtimo.get(i)+"\t"+Singleton.getInstance().resultFIFO.get(i)+"\t"+Singleton.getInstance().resultMRU.get(i));
+            message += qntMinimaFrames+"\t"+
+                    Singleton.getInstance().resultSecondChance.get(i)+"\t"+
+                    Singleton.getInstance().resultNUR.get(i)+"\t"+
+                    Singleton.getInstance().resultOtimo.get(i)+"\t"+
+                    Singleton.getInstance().resultFIFO.get(i)+"\t"+
+                    Singleton.getInstance().resultMRU.get(i)+"\n";
             qntMinimaFrames++;
-
         }
+        JOptionPane.showMessageDialog(null, new JScrollPane(new JTextArea(message)), "Resultado", JOptionPane.PLAIN_MESSAGE);
+        System.out.println(message);
 
     }
 
