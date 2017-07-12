@@ -16,20 +16,11 @@ public class Main {
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(window);
         java.io.File file = chooser.getSelectedFile();
-
-        //System.out.print("Insira o path do arquivo: ");
-        //String path = scanner.nextLine();
         new ReadFile(file);
 
-        //C:\Users\robso\AndroidStudioProjects\SistemaOperacionaisII\src\REFERENCIAS_100k.txt
-        System.out.print("Insira a quantidade de frames inicial: ");
-        int qntMinimaFrames = scanner.nextInt();
-
-        System.out.print("Insira a quantidade de frames final: ");
-        int qntMaximaFrames = scanner.nextInt();
-
-        System.out.print("Insira o intervalo de frames: ");
-        int zerador = scanner.nextInt();
+        int qntMinimaFrames = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a quantidade de frames inicial"));
+        int qntMaximaFrames = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a quantidade de frames final"));
+        int zerador = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira o intervalo de frames"));
 
 
         while (!Singleton.getInstance().fileComplete){}
