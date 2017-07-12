@@ -1,21 +1,22 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class ReadFile extends Thread {
 
     private static final String FILE_LOCATION = "C:\\Users\\robso\\AndroidStudioProjects\\SistemaOperacionaisII\\src\\REFERENCIAS_100k.txt";
-    private String path;
+    private File file;
 
-    ReadFile(String path){
-        this.path = path;
+    ReadFile(File file){
+        this.file = file;
         new Thread(this).start();
     }
 
     @Override
     public void run() {
         super.run();
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String sCurrentLine;
             while ((sCurrentLine = br.readLine()) != null) {
                 for (int i=0; i<sCurrentLine.length(); i++){
